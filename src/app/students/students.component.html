@@ -1,0 +1,19 @@
+<div>
+    <app-studentform [studentsData]="students"></app-studentform>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Номер</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Отчество</th>
+        </tr>
+        <tr *ngFor="let student of students">
+            <td>{{student.id}}</td>
+            <td>{{student.Fam}}</td>
+            <td>{{student.Im}}</td>
+            <td>{{student.Ot}}</td>
+        </tr>
+    </table>
+</div>

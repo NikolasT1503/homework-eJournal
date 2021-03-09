@@ -1,0 +1,27 @@
+<div>
+<form [formGroup]="form" novalidate>
+    <table>
+    <caption>Добавление новых уроков</caption>
+        <!-- <label>ID</label><input type="text" formControlName="id">&nbsp; -->
+    <tr>
+        <th>Дата урока</th>
+        <td><input type="date" formControlName="dateLesson"></td>
+    </tr>
+    <tr>
+        <th>Тема</th>
+        <td><input type="text" formControlName="theme"></td>
+    </tr>
+    <tr>
+        <th>Домашнее задание</th>
+        <td><input type="text" formControlName="homework"></td>
+    </tr>
+    <tr>
+        <th>Примечание</th>
+        <td><input type="text" formControlName="note"></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center"><button (click)="addValue(form.value)">Добавить урок</button></td>
+    </tr>
+    </table>
+  </form>
+</div>

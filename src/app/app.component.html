@@ -1,0 +1,14 @@
+<table class="main">
+    <caption>Приложение "Школьный журнал"</caption>
+    <tr>
+        <td><app-lessons #lessons></app-lessons></td>
+        <td><app-students #students></app-students></td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">Журнал оценок</td>
+    </tr>
+    <tr>
+        <td colspan="2"><app-marks [lessonsIn]="lessons" [studentsIn]="students"></app-marks></td>
+    </tr>
+</table>
+

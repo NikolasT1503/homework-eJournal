@@ -1,0 +1,29 @@
+<table>
+    <tr>
+        <th>№</th>
+        <th>ФИО студента</th>
+        <th *ngFor="let lesson of lessons">{{lesson.dateLesson}}/{{lesson.theme}}</th>
+        <th>Средний балл</th>
+        <th>Округленный балл</th>
+    </tr>
+    <tr *ngFor="let student of marks">
+        <td>{{student.idStudent}}</td>
+        <td>{{getFIOStudent(student.idStudent)}}</td>
+        <td *ngFor="let item of student.studentMarks"> 
+            <select onchange="">
+                <option value="null">Выберите оценку</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            
+            {{item.mark}}
+        </td>
+        <td> {{ student.avgMark }}</td>
+        <td> {{ student.roundedMark }}</td>
+    </tr>
+</table>
+<pre>{{marks | json}}</pre>
+

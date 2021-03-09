@@ -1,0 +1,22 @@
+<div>
+    <app-lessonform [lessonsData]="lessonsData"></app-lessonform>
+</div>
+<div>
+    <table>
+        <tr>
+            <th>Номер</th>
+            <th>Дата урока</th>
+            <th>Тема</th>
+            <th>Домашнее задание</th>
+            <th>Примечание</th>
+        </tr>
+        <tr *ngFor="let lesson of lessonsData">
+            <td>{{lesson.id}}</td>
+            <td>{{lesson.dateLesson}}</td>
+            <td>{{lesson.theme}}</td>
+            <td>{{lesson.homework}}</td>
+            <td>{{lesson.note}}</td>
+        </tr>
+    </table>
+</div>
+<!-- <pre>{{lessonsData | json}}</pre> -->
