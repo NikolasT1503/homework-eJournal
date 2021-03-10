@@ -6,20 +6,13 @@
         <th>Средний балл</th>
         <th>Округленный балл</th>
     </tr>
-    <tr *ngFor="let student of marks">
+    <tr *ngFor="let student of marks; let r=index">
         <td>{{student.idStudent}}</td>
         <td>{{getFIOStudent(student.idStudent)}}</td>
-        <td *ngFor="let item of student.studentMarks"> 
-            <select onchange="">
-                <option value="null">Выберите оценку</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
+        <td *ngFor="let item of student.studentMarks; let d=index"> 
+            <select #markSelect (change)="selectMark(r,d,markSelect.value)">
+                <option *ngFor="let sm of marksSelect; let i=index"  [value]="sm">{{sm}}</option>
             </select>
-            
-            {{item.mark}}
         </td>
         <td> {{ student.avgMark }}</td>
         <td> {{ student.roundedMark }}</td>

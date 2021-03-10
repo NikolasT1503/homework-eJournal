@@ -3,6 +3,7 @@ import { Lesson, LessonsComponent } from '../lessons/lessons.component';
 import { Student, StudentsComponent } from '../students/students.component';
 
 
+
 export interface StudentMark {
   idStudent: string;
   studentMarks: [
@@ -80,7 +81,7 @@ export class MarksComponent implements OnInit {
     this.marks[tmpIndex].studentMarks.forEach((el) => {
       sum += +el.mark;
     });
-    this.marks[tmpIndex].avgMark = sum / (this.marks[tmpIndex].studentMarks.length - 1)
+    this.marks[tmpIndex].avgMark = sum / (this.marks[tmpIndex].studentMarks.length)
   }
 
   roundedRate(id: string) {
@@ -90,6 +91,13 @@ export class MarksComponent implements OnInit {
   getFIOStudent(id: string): string {
     var tmpStudent = this.students.find((o) => o.id === id);
     return tmpStudent.Fam + ' ' + tmpStudent.Im + ' ' + tmpStudent.Ot;
+  }
+
+  selectMark(r: number, d: number, mark: number){
+    this.marks[r].studentMarks[d].mark=mark;
+    console.log('Установка оценки', r, d, this.marks[r].idStudent, this.marks[r].studentMarks[d].idLesson, this.marks[r].studentMarks[d].mark)
+    this.avgRate((r+1).toString());
+    this.roundedRate((r+1).toString());
   }
 
   /*   groupBy(arr, fn) {
